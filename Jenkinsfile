@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node' // Install Node.js tool named 'node'
+    }
+
     stages {
         stage('Checkout') {
             steps {
