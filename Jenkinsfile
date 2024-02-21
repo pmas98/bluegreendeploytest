@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'node' // Install Node.js tool named 'node'
+        NodeJS 'node' // Install Node.js tool named 'node'
     }
 
     stages {
