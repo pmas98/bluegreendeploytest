@@ -23,13 +23,11 @@ pipeline {
                     sh 'npm test'
                 }
             }
-        }
-
+        
         stage('Build Docker Image') {
-            steps {
                 script {
                     sh 'docker build -t bluegreendeploy .'
-                }
             }
         }
+    }
     }
