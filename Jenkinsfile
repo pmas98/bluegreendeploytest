@@ -1,8 +1,9 @@
 pipeline {
-    agent any
-
-    tools {
-        'NodeJS' 'NodeJS' // Install Node.js tool named 'node'
+    agent {
+        docker {
+            image 'node:20.11.1-alpine3.19' 
+            args '-p 3000:3000' 
+        }
     }
 
     stages {
@@ -13,15 +14,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                script {
                     sh 'npm install'
-                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                script {
                     sh 'npm test'
                 }
             }
